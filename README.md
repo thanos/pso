@@ -347,3 +347,6 @@ Any web request handler will be building many urls. This is tedious and error pr
  * `serviceUri(self, clean=1, **kws)` - *TODO*.
  * `uriParts(self)` - *TODO*.
 
+Session Handling
+
+By default every pso request has a session object. getSession() retrieves it. It is a mutable dictionary whose contents is saved between invocations of the request handler. The document Easy mod_python session handling using pso.session] or Easy CGI session handling using pso.session describe session handling with pso in greater detail.
