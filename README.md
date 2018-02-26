@@ -350,3 +350,21 @@ Any web request handler will be building many urls. This is tedious and error pr
 ### Session Handling
 
 By default every `pso` request has a session object. `getSession()` retrieves it. It is a mutable dictionary whose contents is saved between invocations of the request handler. The document Easy `mod_python` session handling using pso.session] or Easy `CGI` session handling using pso.session describe session handling with `pso` in greater detail.
+
+```python
+from pso.service import ServiceHandler, OK
+	
+def testSession(serviceRequest):
+        session = serviceRequest.pso().session
+        try:
+                session['reloads'] +=1
+        except:
+                session['reloads'] =0
+        print "<br>hello World!  ~ Your number of reloads: %(reloads)d ~ Try Reload !" %  session
+        print "<br>session: %s" %  session.__dict__
+	return OK
+
+
+if __name__ == '__main__':
+	ServiceHandler().run(testSession)
+```
