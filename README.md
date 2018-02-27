@@ -360,8 +360,8 @@ def testSession(serviceRequest):
                 session['reloads'] +=1
         except:
                 session['reloads'] =0
-        print "<br>hello World!  ~ Your number of reloads: %(reloads)d ~ Try Reload !" %  session
-        print "<br>session: %s" %  session.__dict__
+        print ("<br>hello World!  ~ Your number of reloads: %(reloads)d ~ Try Reload !" %  session)
+        print ("<br>session: %s" %  session.__dict__)
 	return OK
 
 
