@@ -349,7 +349,7 @@ Any web request handler will be building many urls. This is tedious and error pr
 
 ### Session Handling
 
-By default every `pso` request has a session object. `getSession()` retrieves it. It is a mutable dictionary whose contents is saved between invocations of the request handler. The document Easy `mod_python` session handling using pso.session] or Easy `CGI` session handling using pso.session describe session handling with `pso` in greater detail.
+By default every `pso` request has a session object. `getSession()` retrieves it. It is a mutable dictionary whose contents is saved between invocations of the request handler. The document [Easy `mod_python` session handling using pso.session](http://pso.sourceforge.net/doc/session-cgi.html) or [Easy `CGI` session handling using pso.session](http://pso.sourceforge.net/doc/session-cgi.html) describe session handling with `pso` in greater detail.
 
 ```python
 from pso.service import ServiceHandler, OK
