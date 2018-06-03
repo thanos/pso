@@ -301,9 +301,12 @@ When using `psosys.stdout` is buffered until the termination of the request hand
 requestService.write(someString)
 ```
 
-sys.stderr and logging
-By default the output to sys.stderr is posted to the httpd log, but this can be easily changed using the following httpd directive:
-CGI	mod_python
-SetEnv PSOLog=/path/to/some/Log
-PythonOption PSOLog=/path/to/some/Log
-pso.ServiceRequest also has a member function log(self, *listToPost) that will post a line to the log starting with a timestamp then followed by the parameters in listToPost.
+### sys.stderr and logging
+
+By default the output to `sys.stderr` is posted to the httpd log, but this can be easily changed using the following httpd directive:
+| `CGI` | `mod_python` |
+------+------------
+| `SetEnv` | `PSOLog=/path/to/some/Log` |
+ 
+
+`pso.ServiceRequest` also has a member function `log(self, *listToPost)` that will post a line to the log starting with a timestamp then followed by the parameters in `listToPost`.
