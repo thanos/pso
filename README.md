@@ -310,3 +310,30 @@ By default the output to `sys.stderr` is posted to the httpd log, but this can b
  
 
 `pso.ServiceRequest` also has a member function `log(self, *listToPost)` that will post a line to the log starting with a timestamp then followed by the parameters in `listToPost`.
+
+```python
+from pso.service import ServiceHandler, OK
+
+class ErrorToBeLogged(Exception): pass
+class ErrorForTraceBack(Exception): pass
+
+def testError(serviceRequest):
+	print "<pre>"
+	try:
+		raise ErrorToBeLogged()
+	except ErrorToBeLogged, e:
+		serviceRequest.log('just caught this error:', e.__class__, "<br>")
+		try:
+			raise ErrorForTraceBack()
+		except:
+			import traceback
+			traceback.print_exc()
+	import os
+	print os.popen("tail -50 /tmp/psotestlog").read()
+	return OK
+        
+               
+
+ __name__ == '__main__':
+	ServiceHandler().run(testError)
+```
