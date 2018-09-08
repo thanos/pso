@@ -271,21 +271,21 @@ from pso.service import ServiceHandler,OK
 def testHeaderOut(serviceRequest):
 	if serviceRequest.hasInputs('url','target'):
 		serviceRequest.setHeaderOut('Window-target', serviceRequest.getInput('target'))
-		print "<ul>" 
+		print ("<ul>")
 		table = serviceRequest.getHeadersOut()
 		for k in table.keys(): 
-			print "<li>",k, table[k] 
-		print "</ul>"
+			print ("<li>",k, table[k])
+		print ("</ul>")
 		print serviceRequest.getInput('message')	
 	else:		
-		print """
+		print ("""
 		WIndow target seems to only work with netscape, please try and let us know.
 		<form>
 			target: <input name="target" type="text" > 
 			message: <input name="message" type="text" size=50 > 
 			<input type="hidden" name="test" value="headerOut">
 			<input name="action"  type="submit" value="write to target"> 
-		</form>"""
+		</form>""")
 
 
  __name__ == '__main__':
