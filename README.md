@@ -262,4 +262,4 @@ if __name__ == '__main__':
 
 `pso` sets many headers `(status, content_type, cookie)`, and it is easy to do using :
  * `setHeaderOut(self, key, value)` - replaces the header entry with the same key.
-`addHeaderOut(self, key, value)` - adds the header entry.
+ * `addHeaderOut(self, key, value)` - adds the header entry.
