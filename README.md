@@ -271,12 +271,12 @@ from pso.service import ServiceHandler,OK
 def testHeaderOut(serviceRequest):
 	if serviceRequest.hasInputs('url','target'):
 		serviceRequest.setHeaderOut('Window-target', serviceRequest.getInput('target'))
-		print ("<ul>")
+		print ('<ul>')
 		table = serviceRequest.getHeadersOut()
 		for k in table.keys(): 
-			print ("<li>",k, table[k])
-		print ("</ul>")
-		print serviceRequest.getInput('message')	
+			print ('<li>',k, table[k])
+		print ('</ul>')
+		print serviceRequest.getInput('message')
 	else:		
 		print ("""
 		WIndow target seems to only work with netscape, please try and let us know.
