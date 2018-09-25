@@ -206,5 +206,26 @@ if __name__ == '__main__':
 
 Redirection is essential and pso makes this easy. Just call ServiceRequest.redirect(someUrl) and your script will terminate and redirect the client's browser.
 
+```python
+from pso.service import ServiceHandler,OK
+
+def testRedirect(serviceRequest):
+	url =  serviceRequest.getInput('url')
+	if not url:
+		print """
+		<form >
+		Redirect to : <input name="url" type="text" size=40">
+		<input name="test" type="hidden" value="redirect">
+		</form>"""
+	else:
+		serviceRequest.redirect(url)
+	return OK
+
+
+
+if __name__ == '__main__':
+	ServiceHandler().run(testRedirect)
+```
+
 
 
