@@ -135,7 +135,7 @@ if __name__ == '__main__':
   * `Path`
   * `Secure`
   * `Version`
-  * `expires`?... Used by netscape et al. This takes a string date such as `"Mon, 12 Nov 2002 13:04:56 GMT"`, as defined in RFC2068 section 3.3.1 [also RCF822 and RCF1123]
+  * `expires`?... Used by netscape et al. This takes a string date such as `"Mon, 12 Nov 2002 13:04:56 GMT"`, as defined in [`RFC 2068`](https://www.ietf.org/rfc/rfc2068.txt) section 3.3.1 [also [`RCF 822`](https://www.ietf.org/rfc/rfc822.txt) and [`RCF 1123`](https://www.ietf.org/rfc/rfc1123.txt)
 
 ```python
 from pso.service import ServiceHandler, OK
@@ -201,4 +201,10 @@ if __name__ == '__main__':
 	ServiceHandler().run(testUpload)
 
 ```
+
+### Redirection
+
+Redirection is essential and pso makes this easy. Just call ServiceRequest.redirect(someUrl) and your script will terminate and redirect the client's browser.
+
+
 
