@@ -204,7 +204,7 @@ if __name__ == '__main__':
 
 ### Redirection
 
-Redirection is essential and `pso` makes this easy. Just call ServiceRequest.redirect(someUrl) and your script will terminate and redirect the client's browser.
+Redirection is essential and `pso` makes this easy. Just call `ServiceRequest.redirect(someUrl)` and your script will terminate and redirect the client's browser.
 
 ```python
 from pso.service import ServiceHandler,OK
