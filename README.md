@@ -230,10 +230,10 @@ if __name__ == '__main__':
 
 ### Status
 
-By default pso always sets the return status to 200. When invoking redirect, pso will set the status code to either 301 or 302. To set the code explicitly you have a choice of invoking:
-sendStatus(self, status) - this immediately sends the status code and terminates you handler.
-setStatus(self, status) - this sets the status code but your request handler will continue execution.
-For a complete list of these codes you should refer to [ rfc2616 sec6.1.1].
+By default `pso` always sets the return status to `200`. When invoking redirect, pso will set the status code to either `301` or `302`. To set the code explicitly you have a choice of invoking:
+ * `sendStatus(self, status)` - this immediately sends the status code and terminates you handler.
+ * `setStatus(self, status)` - this sets the status code but your request handler will continue execution.
+For a complete list of these codes you should refer to [ `rfc2616 sec6.1.1`].
 
 
 
