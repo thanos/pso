@@ -235,7 +235,24 @@ By default `pso` always sets the return status to `200`. When invoking redirect,
  * `setStatus(self, status)` - this sets the status code but your request handler will continue execution.
 For a complete list of these codes you should refer to [ `rfc2616 sec6.1.1`].
 
+```python
+from pso.service import ServiceHandler,OK
 
+def testStatus(serviceRequest):
+	if not serviceRequest.hasInput('status'):
+		print ("""
+		<form>
+			<input name="status" type="text" size=3" maxsize=3>
+			<input name="test" type="hidden" value="status">
+		</form>""")
+	else:
+		status = serviceRequest.getInput('status', '204')
+		serviceRequest.sendStatus(status)
+	return OK
+
+if __name__ == '__main__':
+	ServiceHandler().run(testRedirect)
+```
 
 
 
