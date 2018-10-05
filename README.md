@@ -167,33 +167,35 @@ The returned fields object has also some new methods:
 
 
 ```python
+import os
+
 def testUpload(serviceRequest):
 	if serviceRequest.hasInputs('file'):
 		file = serviceRequest.getFile('file')
 		file.keep()
-		print """
+		print ("""
 		<form >
 			Save As: <input name="saveAs" type="text" >
 			<input name="tempfile" type="hidden" value="%s">
 			<input name="test" type="hidden" value="upload">
-		</form> """ % file.tempname
+		</form> """ % file.tempname)
 
 	elif serviceRequest.hasInputs('saveAs'):
 		tempFile = serviceRequest.getInput('tempfile')
 		saveAs = serviceRequest.getInput( 'saveAs')
-		import os
-		print "renaming", tempFile, 'to', '/tmp/'+saveAs
+		
+		print ("renaming", tempFile, 'to', '/tmp/'+saveAs)
 		os.rename(tempFile, '/tmp/'+saveAs)
-		print """
+		print ("""
 		DONE - Thankyou
-		"""
+		""")
 	else:
-		print """
+		print ("""
 			<form  enctype="multipart/form-data" method="POST">
 			file: <input name="file" type="file" >
 			<input name="test" type="hidden" value="upload">
 			<input name="action" type="submit" value="Upload">
-		</form>"""
+		</form>""")
 	return OK
 
 
@@ -212,11 +214,11 @@ from pso.service import ServiceHandler,OK
 def testRedirect(serviceRequest):
 	url =  serviceRequest.getInput('url')
 	if not url:
-		print """
+		print ("""
 		<form >
 		Redirect to : <input name="url" type="text" size=40">
 		<input name="test" type="hidden" value="redirect">
-		</form>"""
+		</form>""")
 	else:
 		serviceRequest.redirect(url)
 	return OK
@@ -234,7 +236,6 @@ By default `pso` always sets the return status to `200`. When invoking redirect,
  * `sendStatus(self, status)` - this immediately sends the status code and terminates you handler.
  * `setStatus(self, status)` - this sets the status code but your request handler will continue execution.
 For a complete list of these codes you should refer to [`rfc2616 sec6.1.1`](https://tools.ietf.org/html/rfc2616#section-6.1).
-
 
 ```python
 from pso.service import ServiceHandler,OK
