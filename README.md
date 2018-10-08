@@ -16,7 +16,7 @@ We are programmers, so `pso` has been kept simple and basic. The template system
 ## System Requirements
  
   * Python - http://www.python.org
-  * pso - http://sourceforge.net/projects/pso/
+  * `pso` - http://sourceforge.net/projects/pso/
 
 
 ## Quick Example
