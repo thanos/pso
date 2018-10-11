@@ -49,7 +49,7 @@ def testHandler(req):
 	req.send_http_header()
 	req.write( "hello world")
 	return apache.OK
-The above programs rewritten in `pso`
+The above programs rewritten in pso
 ```
 
 
