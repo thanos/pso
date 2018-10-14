@@ -8,7 +8,7 @@ We developed `pso` for the following reasons:
  3. We wanted to be able to just add a new tag to a template and drop in the relevant classes without changing the application code. Every tag represents an object whose class can be sub classed. You only need to place the new class in the python import path for it to be recognized and used by the parser.
  4 We found that it was only trivial systems that did not need session handling. When you use `pso`, session handling is available by default.
  5. We wanted lots of useful methods to handle redirection, setting cookies, targets, status, also methods to handle file uploads, and other form handling, and url coding. `pso` offers these.
-We are programmers, so `pso` has been kept simple and basic. The template system offers no built in tags, you have to build your own or subclasses those contributed, by ourselves or other users. We decided on this spartan approach on the basis that by keeping `pso` simple and light it would be easier to maintain and keep error free. Who uses `pso` ? Well let us say the biggest stock market uses `pso` on the floor and in the back offices for there most used and important internet trading service. So will `pso` be maintained ? They will!
+We are programmers, so `pso` has been kept simple and basic. The template system offers no built in tags, you have to build your own or subclasses those contributed, by ourselves or other users. We decided on this spartan approach on the basis that by keeping `pso` simple and light it would be easier to maintain and keep error free. Who uses `pso` ? Well let us say the biggest stock market uses `pso` on the floor and in the back offices for there most used and important internet trading service. So will pso be maintained ? They will!
 
 
 
