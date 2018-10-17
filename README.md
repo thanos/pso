@@ -60,15 +60,15 @@ if __name__ == '__main__':
 	ServiceHandler().run(testHandler)
 
 ```
-## pso.request.ServiceRequest - servicing requests
+## `pso.request.ServiceRequest` - servicing requests
 
 ### Form Input
 
-The ServiceRequest object has the following methods:
+The `ServiceRequest` object has the following methods:
 
  * `hasInputs(self, *keys)` - tests if a field or fields in the form were filled.
 
- * `getInputs(self, key=None)` - which given a key will return a list of all the values associated with this key. If none exits it will return an empty list. When getInputs() is called a cgi.FieldStorage object is returned.
+ * `getInputs(self, key=None)` - which given a key will return a list of all the values associated with this key. If none exits it will return an empty list. When `getInputs()` is called a `cgi.FieldStorage` object is returned.
 
  * `getInput(self, key, default=None, index=None)` returns the given form field value as a string. If there are multiple values under the same key, it will return the first in the list, unless index is given. If no value is found will return `""`, unless default is given.
 
@@ -104,7 +104,7 @@ if __name__ == '__main__':
 
 ### Server, request header & environment variables
 
-pso emulates the CGI standard, and these variables are available through `ServiceRequest.getEnvrion(self, key=None, default=None)` that takes a key and either returns a string or default. If no key is given a dictionary is returned of these variables.
+`pso` emulates the `CGI` standard, and these variables are available through `ServiceRequest.getEnvrion(self, key=None, default=None)` that takes a key and either returns a string or default. If no key is given a dictionary is returned of these variables.
 
 
 ```python
