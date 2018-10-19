@@ -126,9 +126,9 @@ if __name__ == '__main__':
 
 ### Handling cookies
 
-* You get cookies using ServiceRequest.getCookies(self) that returns a dictionary of cookies and their values.
+* You get cookies using `ServiceRequest.getCookies(self)` that returns a dictionary of cookies and their values.
 * You get a cookie using `ServiceRequest.getCookie(self, key, default=None)` which returns the cookie value requested by key otherwise returns default.
-* Cookies can be set by using `setCookie(self, key, value, **attrs)` sets cookie key to value. **attrs is a key word parameter through which you can pass the cookie attributes as defined in `RCF2109`:
+* Cookies can be set by using `setCookie(self, key, value, **attrs)` sets cookie key to value. **attrs is a key word parameter through which you can pass the cookie attributes as defined in [`RCF 2109`](https://www.ietf.org/rfc/rfc2109.txt):
   * `Comment`
   * `Domain`
   * `Max-Age`
