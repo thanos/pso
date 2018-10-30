@@ -54,7 +54,7 @@ def testHandler(req):
 from pso.service import ServiceHandler
 
 def testHandler(serviceRequest):
-	print "Hello World!"  
+	print ('Hello World!') 
 
 if __name__ == '__main__':
 	ServiceHandler().run(testHandler)
