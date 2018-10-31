@@ -142,12 +142,12 @@ from pso.service import ServiceHandler, OK
 
 def testCookie(serviceRequest):
 	if not serviceRequest.getCookie("MyTest"):
-		print 'setting cookie "MyTest" to "is Tasty" reload to see this cookie'
+		print ('setting cookie "MyTest" to "is Tasty" reload to see this cookie')
 		serviceRequest.setCookie('MyTest','is Tasty')
-	print"<ul>"
+	print ('<ul>')
 	for cookieValue in serviceRequest.getCookies().items():
-		print "<li>%s: %s" % cookieValue
-	print "</ul>"
+		print ('<li>%s: %s' % cookieValue)
+	print ('</ul>')
 	return OK
 
  __name__ == '__main__':
