@@ -112,10 +112,10 @@ if __name__ == '__main__':
 from pso.service import ServiceHandler, OK
 
 def testEnviron(serviceRequest):
-	print "<ul>"
+	print ('<ul>')
 	for keyValue in serviceRequest.getEnviron().items():
-		print "<li>%s: %s" % keyValue
-	print "</ul>"
+		print ('<li>%s: %s' % keyValue)
+	print ('</ul>')
 	return OK
 
 
