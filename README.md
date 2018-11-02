@@ -82,12 +82,12 @@ def testInput(serviceRequest):
 	if serviceRequest.hasInput("submit"):
 		name = serviceRequest.getInput("name")
 		options =  ",".join(serviceRequest.getInputs("option"))
-		print """<pre>
+		print ("""<pre>
 			name: %s,
 			options: %s
-			</pre>""" % (name, options)
+			</pre>""") % (name, options)
 	else:
-		print """
+		print ("""
 			<form >
 			<input name="name">
 			<input name="option" value="alpha" type="checkbox">alpha
@@ -95,7 +95,7 @@ def testInput(serviceRequest):
 			<input type="hidden" name="test" value="input">
 			<input type="submit" name="submit" value="submit">
 			</form>
-			"""
+			""")
 	return OK
 
 if __name__ == '__main__':
