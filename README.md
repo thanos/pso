@@ -17,3 +17,24 @@ We are programmers, so pso has been kept simple and basic. The template system o
  
   * Python - http://www.python.org
   * pso - http://sourceforge.net/projects/pso/
+
+
+## Quick Example
+
+Lets start with a really simple CGI:
+
+### a cgi	a mod_python script
+```python
+
+#!/usr/bin python2.7
+
+
+def testHandler():
+	print "content-type: text/html"
+	print
+	print "hello world"
+
+if __name__ == '__main__':	
+	testHandler()
+
+```
