@@ -10,3 +10,10 @@ We developed pso for the following reasons:
  5. We wanted lots of useful methods to handle redirection, setting cookies, targets, status, also methods to handle file uploads, and other form handling, and url coding. pso offers these.
 We are programmers, so pso has been kept simple and basic. The template system offers no built in tags, you have to build your own or subclasses those contributed, by ourselves or other users. We decided on this spartan approach on the basis that by keeping pso simple and light it would be easier to maintain and keep error free. Who uses pso ? Well let us say the biggest stock market uses pso on the floor and in the back offices for there most used and important internet trading service. So will pso be maintained ? They will!
 
+
+
+
+## System Requirements
+ 
+  * Python - http://www.python.org
+  * pso - http://sourceforge.net/projects/pso/
