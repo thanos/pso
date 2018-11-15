@@ -53,7 +53,7 @@ The above programs rewritten in pso
 ```
 
 
-### A `pso python` example that works as both a `cgi` or a `mod_python` script
+### The  above programs rewritten in `pso` that works as both a `cgi` or a `mod_python` script
 
 ```python
 from pso.service import ServiceHandler
@@ -65,3 +65,4 @@ if __name__ == '__main__':
 	ServiceHandler().run(testHandler)
 
 ```
+
