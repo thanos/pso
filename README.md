@@ -23,7 +23,7 @@ We are programmers, so pso has been kept simple and basic. The template system o
 
 Lets start with a really simple CGI:
 
-### a cgi	a mod_python script
+### a `cgi` example
 ```python
 
 #!/usr/bin python2.7
@@ -36,5 +36,32 @@ def testHandler():
 
 if __name__ == '__main__':	
 	testHandler()
+
+```
+
+### A `mod_python` example
+
+```python
+
+from mod_python import apache
+
+def testHandler(req):
+	req.send_http_header()
+	req.write( "hello world")
+	return apache.OK
+The above programs rewritten in pso
+```
+
+
+### A `pso python` example that works as both a `cgi` or a `mod_python` script
+
+```python
+from pso.service import ServiceHandler
+
+def testHandler(serviceRequest):
+	print "Hello World!"  
+
+if __name__ == '__main__':
+	ServiceHandler().run(testHandler)
 
 ```
