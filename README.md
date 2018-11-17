@@ -65,4 +65,16 @@ if __name__ == '__main__':
 	ServiceHandler().run(testHandler)
 
 ```
+## pso.request.ServiceRequest - servicing requests
+
+### Form Input
+
+The ServiceRequest object has the following methods:
+
+ * `hasInputs(self, *keys)` - tests if a field or fields in the form were filled.
+
+ * `getInputs(self, key=None)` - which given a key will return a list of all the values associated with this key. If none exits it will return an empty list. When getInputs() is called a cgi.FieldStorage object is returned.
+
+ * `getInput(self, key, default=None, index=None)` returns the given form field value as a string. If there are multiple values under the same key, it will return the first in the list, unless index is given. If no value is found will return `""`, unless default is given.
+
 
