@@ -78,3 +78,31 @@ The ServiceRequest object has the following methods:
  * `getInput(self, key, default=None, index=None)` returns the given form field value as a string. If there are multiple values under the same key, it will return the first in the list, unless index is given. If no value is found will return `""`, unless default is given.
 
 
+```python
+
+from pso.service import ServiceHandler, OK
+
+
+def testInput(serviceRequest):
+	if serviceRequest.hasInput("submit"):
+		name = serviceRequest.getInput("name")
+		options =  ",".join(serviceRequest.getInputs("option"))
+		print """<pre>
+			name: %s,
+			options: %s
+			</pre>""" % (name, options)
+	else:
+		print """
+			<form >
+			<input name="name">
+			<input name="option" value="alpha" type="checkbox">alpha
+			<input name="option" value="omega" type="checkbox">omega
+			<input type="hidden" name="test" value="input">
+			<input type="submit" name="submit" value="submit">
+			</form>
+			"""
+	return OK
+
+if __name__ == '__main__':
+	ServiceHandler().run(testInput)
+```
