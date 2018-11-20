@@ -110,3 +110,21 @@ if __name__ == '__main__':
 ### Server, request header & environment variables
 
 pso emulates the CGI standard, and these variables are available through `ServiceRequest.getEnvrion(self, key=None, default=None)` that takes a key and either returns a string or default. If no key is given a dictionary is returned of these variables.
+
+
+```python
+
+from pso.service import ServiceHandler, OK
+
+def testEnviron(serviceRequest):
+	print "<ul>"
+	for keyValue in serviceRequest.getEnviron().items():
+		print "<li>%s: %s" % keyValue
+	print "</ul>"
+	return OK
+
+
+if __name__ == '__main__':
+	ServiceHandler().run(testEnviron)
+
+```
