@@ -132,12 +132,13 @@ if __name__ == '__main__':
 ### Handling cookies
 
 * You get cookies using ServiceRequest.getCookies(self) that returns a dictionary of cookies and their values.
-* You get a cookie using ServiceRequest.getCookie(self, key, default=None) which returns the cookie value requested by key otherwise returns default.
-* Cookies can be set by using setCookie(self, key, value, **attrs) sets cookie key to value. **attrs is a key word parameter through which you can pass the cookie attributes as defined in RCF2109:
-  * Comment
-  * Domain
-  * Max-Age
-  * Path
-  * Secure
-  * Version
-  * expires?... Used by netscape et al. This takes a string date such as "Mon, 12 Nov 2002 13:04:56 GMT", as defined in RFC2068 section 3.3.1 [also RCF822 and RCF1123]
+* You get a cookie using `ServiceRequest.getCookie(self, key, default=None)` which returns the cookie value requested by key otherwise returns default.
+* Cookies can be set by using `setCookie(self, key, value, **attrs)` sets cookie key to value. **attrs is a key word parameter through which you can pass the cookie attributes as defined in `RCF2109`:
+  * `Comment`
+  * `Domain`
+  * `Max-Age`
+  * `Path`
+  * `Secure`
+  * `Version`
+  * `expires`?... Used by netscape et al. This takes a string date such as `"Mon, 12 Nov 2002 13:04:56 GMT"`, as defined in RFC2068 section 3.3.1 [also RCF822 and RCF1123]
+
