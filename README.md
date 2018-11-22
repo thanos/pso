@@ -142,7 +142,7 @@ if __name__ == '__main__':
   * `Version`
   * `expires`?... Used by netscape et al. This takes a string date such as `"Mon, 12 Nov 2002 13:04:56 GMT"`, as defined in RFC2068 section 3.3.1 [also RCF822 and RCF1123]
 
-  ```python
+```python
 from pso.service import ServiceHandler, OK
 
 def testCookie(serviceRequest):
