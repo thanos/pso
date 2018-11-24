@@ -161,12 +161,12 @@ def testCookie(serviceRequest):
 
 ### File Uploads
 
-pso makes file uploading very easy. It offers the method ServiceRequest.getFile(self, key) that returns a PSOFields object, a subclass of cgi.Field. The return object has all some additional member fields:
- * filename - the original file's name
- * file - a file object holding the actual file
- * tempname - is None until the member method keep() is called.
+`pso` makes file uploading very easy. It offers the method `ServiceRequest.getFile(self, key)` that returns a PSOFields object, a subclass of `cgi.Field`. The return object has all some additional member fields:
+ * `filename` - the original file's name
+ * `file` - a file object holding the actual file
+ * `tempname` - is None until the member method keep() is called.
 
 The returned fields object has also some new methods:
- * keep() - For each uploaded file the python standard cgi library opens a temporary file and immediately deletes (unlinks) it. The trick (on Unix!) is that the file can still be used, but it can't be opened by any other process, and it will automatically be deleted when it is closed or when the current process terminates. keep() gives this temporary a new temporary name. This is especially useful for forms that have a confirmation screen.
- * save(pathName) - renames an uploaded file.
+ * `keep()` - For each uploaded file the python standard cgi library opens a temporary file and immediately deletes (unlinks) it. The trick (on Unix!) is that the file can still be used, but it can't be opened by any other process, and it will automatically be deleted when it is closed or when the current process terminates. keep() gives this temporary a new temporary name. This is especially useful for forms that have a confirmation screen.
+ * `save(pathName)` - renames an uploaded file.
 
