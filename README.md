@@ -170,3 +170,39 @@ The returned fields object has also some new methods:
  * `keep()` - For each uploaded file the python standard cgi library opens a temporary file and immediately deletes (unlinks) it. The trick (on Unix!) is that the file can still be used, but it can't be opened by any other process, and it will automatically be deleted when it is closed or when the current process terminates. keep() gives this temporary a new temporary name. This is especially useful for forms that have a confirmation screen.
  * `save(pathName)` - renames an uploaded file.
 
+
+```python
+def testUpload(serviceRequest):
+	if serviceRequest.hasInputs('file'):
+		file = serviceRequest.getFile('file')
+		file.keep()
+		print """
+		<form >
+			Save As: <input name="saveAs" type="text" >
+			<input name="tempfile" type="hidden" value="%s">
+			<input name="test" type="hidden" value="upload">
+		</form> """ % file.tempname
+
+	elif serviceRequest.hasInputs('saveAs'):
+		tempFile = serviceRequest.getInput('tempfile')
+		saveAs = serviceRequest.getInput( 'saveAs')
+		import os
+		print "renaming", tempFile, 'to', '/tmp/'+saveAs
+		os.rename(tempFile, '/tmp/'+saveAs)
+		print """
+		DONE - Thankyou
+		"""
+	else:
+		print """
+			<form  enctype="multipart/form-data" method="POST">
+			file: <input name="file" type="file" >
+			<input name="test" type="hidden" value="upload">
+			<input name="action" type="submit" value="Upload">
+		</form>"""
+	return OK
+
+
+if __name__ == '__main__':
+	ServiceHandler().run(testUpload)
+
+```
