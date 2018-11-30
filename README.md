@@ -291,3 +291,9 @@ def testHeaderOut(serviceRequest):
  __name__ == '__main__':
 	ServiceHandler().run(testHeaderOut)
 ```
+
+
+sys.stdout
+
+When using psosys.stdout is buffered until the termination of the request handler or the invocation of ServiceRequest.send_http_header( self, content_type='text/html'). This system allows you to use print without worrying about when you set the headers, cookies or when you what to redirect. Buffering can damage a performance on very large return screens, yet it can simplify the program logic, and in most cases web services try to fit their return results on one screen. When you want top stop buffering just send the headers, using the method send_http_header. If you want write directly to the sys.stdout before sending the headers you can use:
+requestService.write(someString)
