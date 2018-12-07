@@ -342,8 +342,8 @@ def testError(serviceRequest):
 ### Building Urls
 
 Any web request handler will be building many urls. This is tedious and error prone so `pso.ServiceRequest` offers a set of member methods to make things easy for you:
-`baseUri(self)` - TODO.
-`buildUri(self, parts, clean, **kws)` - TODO.
-`serviceUri(self, clean=1, **kws)` - TODO.
-`uriParts(self)` -TODO.
+`baseUri(self)` - *TODO*.
+`buildUri(self, parts, clean, **kws)` - *TODO*.
+`serviceUri(self, clean=1, **kws)` - *TODO*.
+`uriParts(self)` - *TODO*.
 
