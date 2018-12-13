@@ -372,8 +372,9 @@ if __name__ == '__main__':
 
 ## `pso.parser` - Template Parsing
 
+### `pso` templates
 
 The `pso` parser will process any file, looking for sgml tags. On parsing a template the pso parser generates a renderer object tree. This tree is saved with the templates name plus the extension `".pso"`. Until the template is changed again the compiled version of the template is used. The quest often asked is why `SGML` and not `XML`: We found that with sites and services we developed the designers would create `html` templates. These templates were often not cannonical. The designers used many tricks to create their desired effect. It proved impossible to use the standard available `XML` parsers on non standard markups. Hence we have tried to make the parser as robust as posible.
 
 
-### `pso` templates
+### `pso` tags
