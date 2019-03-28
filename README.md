@@ -396,7 +396,8 @@ Your Favourite Drink:
 <form pso="mytags:DrinkPoll">
 Water: <input type=radio pso="questionaire:Drink" /><br>
 Beer: <input type=radio pso="questionaire:Drink" /><br>
-</form>```
+</form>
+```
 
 The tags can have attributes.
 `<pso pso="mytags:DbTextField" table="clients" />`
