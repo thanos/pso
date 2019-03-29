@@ -436,6 +436,7 @@ getAttrs(self) - returns a case insenstive map of the tags attributes.
 getChildren(self) - returns a list of the tags directly nested within this tag
 travers(self, renderer=None) - visits the method renderer on every tag in this tags tree of children.
 preProcess(self) - this is a callback that is called just before a tags children are rendered.
+```python
 class MyForm(Tag):
 	def validator(self, obj, cdata):
 		if obj:
@@ -447,4 +448,4 @@ class MyForm(Tag):
 	def preProcess(self):
 		self.errors = []
 		self.traverse(self.validator)
-pso parser
+```
