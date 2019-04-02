@@ -399,8 +399,8 @@ Beer: <input type=radio pso="questionaire:Drink" /><br>
 </form>```
 
 The tags can have attributes.
-<pso pso="mytags:DbTextField" table="clients" />
-The coding of tags is straight forward. Your class should sub-class pso.parser.Tag, implement an render member method that returns a String or None. The default tree renderer invokes the Tag object itself. So if you use the default renderer you need to just overwrite __call__. Your render method will usually return a string.
+`<pso pso="mytags:DbTextField" table="clients" />`
+The coding of tags is straight forward. Your class should sub-class pso.parser.Tag, implement an render member method that returns a String or None. The default tree renderer invokes the Tag object itself. So if you use the default renderer you need to just overwrite `__call__.` Your render method will usually return a string.
 from  pso.parser import Tag
 
 class  Welcome(Tag):
