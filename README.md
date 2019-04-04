@@ -387,18 +387,19 @@ or
 or
  `<tagpackage.tagmodule:SomeTagClass />`
 The first is much faster to parse. As you can probably guess the tags name includes the package path terminated by the module name, followed by a semi-colon and then the class that is responsible to render the tag. The second lets you lace existing tags, typically HTML with your own renderer. The third form lets you parse existing pages (XML, or for screen scraping and robot type activities). The pso parser (as will be shown below) can be used to parse any sgml tag such as
- <a  href="http://www.0x01.com/" >a great web site</a> 
+ `<a  href="http://www.0x01.com/" >`a great web site`</a>` 
 Tag names can be any valid entity name, only pso is reserved. As you can see pso tags don't have to be singlets and can be written as:
-<pso pso="tagpackage.tagmodule:SomeTagClass" > what ever you want </ tagpackage.tagmodule:SomeTagClass> 
+`<pso pso="tagpackage.tagmodule:SomeTagClass" >` what ever you want `</ tagpackage.tagmodule:SomeTagClass>`
 They can be nested - this is not the case of most templating systems.
 Your Favourite Drink:
+```html
 <form pso="mytags:DrinkPoll">
 Water: <input type=radio pso="questionaire:Drink" /><br>
 Beer: <input type=radio pso="questionaire:Drink" /><br>
-</form>
+</form>```
 
 The tags can have attributes.
-<pso pso="mytags:DbTextField" table="clients" /> 
+<pso pso="mytags:DbTextField" table="clients" />
 The coding of tags is straight forward. Your class should sub-class pso.parser.Tag, implement an render member method that returns a String or None. The default tree renderer invokes the Tag object itself. So if you use the default renderer you need to just overwrite __call__. Your render method will usually return a string.
 from  pso.parser import Tag
 
