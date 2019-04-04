@@ -381,11 +381,11 @@ The `pso` parser will process any file, looking for sgml tags. On parsing a temp
 ### `pso` tags
 
 When used in a template the tags can be of three forms:
- <pso  pso="tagpackage.tagmodule:SomeTagClass" /> 
+ `<pso  pso="tagpackage.tagmodule:SomeTagClass" />`
 or
- <input  pso="tagpackage.tagmodule:MyInput" /> 
+ `<input  pso="tagpackage.tagmodule:MyInput" />`
 or
-<tagpackage.tagmodule:SomeTagClass />
+ `<tagpackage.tagmodule:SomeTagClass />`
 The first is much faster to parse. As you can probably guess the tags name includes the package path terminated by the module name, followed by a semi-colon and then the class that is responsible to render the tag. The second lets you lace existing tags, typically HTML with your own renderer. The third form lets you parse existing pages (XML, or for screen scraping and robot type activities). The pso parser (as will be shown below) can be used to parse any sgml tag such as
  <a  href="http://www.0x01.com/" >a great web site</a> 
 Tag names can be any valid entity name, only pso is reserved. As you can see pso tags don't have to be singlets and can be written as:
