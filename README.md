@@ -410,22 +410,26 @@ class  Welcome(Tag):
 		return "Welcome %s" % getName()
 
 The parameter renderer is the visitor who traverses the object tree invoking the objects render method. The parameter cdata is the pre-parsed and rendered data between the beginning of this tag and its end. So using this tag
-<pso pso="mytags:Welcome"  intro="Welcome %s" >Please Login</pso> 
+`<pso pso="mytags:Welcome"  intro="Welcome %s" >Please Login</pso>`
 and the code below have the same effect as the previous example.
-from  pso.parser import Tag
+from  `pso.parser` import Tag
 
+```python
 class  Welcome(Tag):
 	def __call__(self, renderer, cdata=''):
 		if not loggedIn():
 			return cdata
 		return self.getAttrs()['intro'] % getName()
+```
 pso tags are instantiated with their attributes as their constructors parameters. So you could do:
 from  pso.parser import Tag
 
+```python
 class  MyWelcome(Welcome):
 	def __init__(self, **attrs):
 		attrs.setdefault('intro','have a good time: %s')
 		Welcome.__init__(self, **attrs)
+```
 The above example really shows the power of the OO model of pso.parser.Tag.
 pso tags come some useful member attributes and methods:
 getAttrs(self) - returns a case insenstive map of the tags attributes.
