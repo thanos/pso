@@ -379,3 +379,67 @@ The `pso` parser will process any file, looking for sgml tags. On parsing a temp
 
 
 ### `pso` tags
+
+When used in a template the tags can be of three forms:
+ <pso  pso="tagpackage.tagmodule:SomeTagClass" /> 
+or
+ <input  pso="tagpackage.tagmodule:MyInput" /> 
+or
+<tagpackage.tagmodule:SomeTagClass />
+The first is much faster to parse. As you can probably guess the tags name includes the package path terminated by the module name, followed by a semi-colon and then the class that is responsible to render the tag. The second lets you lace existing tags, typically HTML with your own renderer. The third form lets you parse existing pages (XML, or for screen scraping and robot type activities). The pso parser (as will be shown below) can be used to parse any sgml tag such as
+ <a  href="http://www.0x01.com/" >a great web site</a> 
+Tag names can be any valid entity name, only pso is reserved. As you can see pso tags don't have to be singlets and can be written as:
+<pso pso="tagpackage.tagmodule:SomeTagClass" > what ever you want </ tagpackage.tagmodule:SomeTagClass> 
+They can be nested - this is not the case of most templating systems.
+Your Favourite Drink:
+<form pso="mytags:DrinkPoll">
+Water: <input type=radio pso="questionaire:Drink" /><br>
+Beer: <input type=radio pso="questionaire:Drink" /><br>
+</form>
+
+The tags can have attributes.
+<pso pso="mytags:DbTextField" table="clients" /> 
+The coding of tags is straight forward. Your class should sub-class pso.parser.Tag, implement an render member method that returns a String or None. The default tree renderer invokes the Tag object itself. So if you use the default renderer you need to just overwrite __call__. Your render method will usually return a string.
+from  pso.parser import Tag
+
+class  Welcome(Tag):
+	def __call__(self, renderer, cdata=''):
+		if not loggedIn():
+			return self.getAttrs()['default']
+		return "Welcome %s" % getName()
+
+The parameter renderer is the visitor who traverses the object tree invoking the objects render method. The parameter cdata is the pre-parsed and rendered data between the beginning of this tag and its end. So using this tag
+<pso pso="mytags:Welcome"  intro="Welcome %s" >Please Login</pso> 
+and the code below have the same effect as the previous example.
+from  pso.parser import Tag
+
+class  Welcome(Tag):
+	def __call__(self, renderer, cdata=''):
+		if not loggedIn():
+			return cdata
+		return self.getAttrs()['intro'] % getName()
+pso tags are instantiated with their attributes as their constructors parameters. So you could do:
+from  pso.parser import Tag
+
+class  MyWelcome(Welcome):
+	def __init__(self, **attrs):
+		attrs.setdefault('intro','have a good time: %s')
+		Welcome.__init__(self, **attrs)
+The above example really shows the power of the OO model of pso.parser.Tag.
+pso tags come some useful member attributes and methods:
+getAttrs(self) - returns a case insenstive map of the tags attributes.
+getChildren(self) - returns a list of the tags directly nested within this tag
+travers(self, renderer=None) - visits the method renderer on every tag in this tags tree of children.
+preProcess(self) - this is a callback that is called just before a tags children are rendered.
+class MyForm(Tag):
+	def validator(self, obj, cdata):
+		if obj:
+			try:
+				obj.validate()
+			except ValidationError, e:
+				self.errors.append(e)
+
+	def preProcess(self):
+		self.errors = []
+		self.traverse(self.validator)
+pso parser
